@@ -1,13 +1,20 @@
 {
   "name": "nyoo",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "sideEffects": false,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "vitest",
     "lint": "eslint ./src",
@@ -25,5 +32,8 @@
     "tsup": "^8.4.0",
     "typescript": "5.8.2",
     "vitest": "^3.0.5"
+  },
+  "peerDependencies": {
+    "next": ">=14.0.0"
   }
 }

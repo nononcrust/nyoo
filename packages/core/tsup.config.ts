@@ -1,14 +1,11 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig({
-  entry: ["./src/index.ts"],
-  skipNodeModulesBundle: true,
+  entry: ["src/index.ts"],
   format: ["esm", "cjs"],
   outDir: "dist",
-  dts: "./src/index.ts",
+  dts: true,
   clean: true,
   minify: true,
-  banner: {
-    js: '"use client";',
-  },
+  external: ["next"],
 });
