@@ -1,0 +1,29 @@
+{
+  "name": "nyoo",
+  "type": "module",
+  "version": "0.0.1",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest",
+    "lint": "eslint ./src",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "tsc --noEmit --watch",
+    "build": "tsup",
+    "publish:beta": "pnpm build && pnpm publish --access public --no-git-checks"
+  },
+  "dependencies": {
+    "next": "^15.3.3",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.24.0",
+    "tsup": "^8.4.0",
+    "typescript": "5.8.2",
+    "vitest": "^3.0.5"
+  }
+}
