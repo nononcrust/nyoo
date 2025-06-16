@@ -17,11 +17,14 @@
   ],
   "scripts": {
     "test": "vitest",
+    "test:ci": "vitest run",
     "lint": "eslint ./src",
     "type-check": "tsc --noEmit",
     "type-check:watch": "tsc --noEmit --watch",
     "build": "tsup",
-    "publish:beta": "pnpm build && pnpm publish --access public --no-git-checks"
+    "prepack": "pnpm build",
+    "prepublishOnly": "pnpm test:ci && pnpm lint && pnpm type-check",
+    "release": "pnpm publish"
   },
   "dependencies": {
     "next": "^15.3.3",
