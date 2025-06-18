@@ -17,8 +17,6 @@ const ArrayOf = <T extends readonly string[]>(value: T) =>
 
 const OneOf = <T extends readonly string[]>(value: T) => z.enum(value);
 
-// Date
-
 export const Parser = {
   /**
    * 페이지 번호를 나타내는 쿼리 파라미터를 정의합니다.
@@ -29,7 +27,7 @@ export const Parser = {
    * "3" -> 3
    *
    * @example
-   * SearchParam.Page.catch(1)
+   * Parser.Page.catch(1)
    *
    */
   Page,
@@ -40,7 +38,7 @@ export const Parser = {
    * "false" -> false
    *
    * @example
-   * SearchParam.Boolean.catch(false)
+   * Parser.Boolean.catch(false)
    *
    */
   Boolean,
@@ -50,7 +48,7 @@ export const Parser = {
    * "book%2Cclothing" -> ["book", "clothing"]
    *
    * @example
-   * SearchParam.ArrayOf(["book", "clothing"]).catch([])
+   * Parser.ArrayOf(["book", "clothing"]).catch([])
    *
    */
   ArrayOf,
@@ -58,15 +56,15 @@ export const Parser = {
    * 특정 문자열을 나타내는 쿼리 파라미터를 정의합니다.
    *
    * @example
-   * SearchParam.Enum(["asc", "desc"]).catch("asc")
+   * Parser.OneOf(["asc", "desc"]).catch("asc")
    */
   OneOf,
   /**
    * 별점(1, 2, 3, 4, 5)을 나타내는 쿼리 파라미터를 정의합니다.
    *
    * @example
-   * SearchParam.StarRating.catch(5)
-   * SearchParam.StarRating.nullable().catch(null)
+   * Parser.StarRating.catch(5)
+   * Parser.StarRating.nullable().catch(null)
    */
   StarRating,
 };
