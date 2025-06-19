@@ -1,4 +1,4 @@
-import { createQueryState, Parser, useQueryState } from "nyoo";
+import { defineQueryState, Parser, useQueryState } from "nyoo";
 
 export const CATEGORIES = ["book", "clothing", "electronics"] as const;
 export const CATEGORY_LABEL: Record<(typeof CATEGORIES)[number], string> = {
@@ -22,12 +22,12 @@ const defaultValue = {
   rating: null,
 } as const;
 
-const ProductListPageQueryState = createQueryState({
+const ProductListPageQueryState = defineQueryState({
   page: Parser.Page.catch(defaultValue.page),
   sort: Parser.OneOf(SORT_OPTIONS).catch(defaultValue.sort),
   categories: Parser.ArrayOf(CATEGORIES).catch(defaultValue.categories),
   instock: Parser.Boolean.catch(defaultValue.instock),
-  rating: Parser.StarRating.nullable().catch(defaultValue.rating),
+  rating: Parser.Rating.nullable().catch(defaultValue.rating),
 });
 
 export const useProductListPageQueryState = () => {

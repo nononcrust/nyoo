@@ -6,7 +6,7 @@ import { compareValue, encodeValue } from "./lib/utils";
 /**
  * 쿼리 파라미터 상태를 관리하는 커스텀 훅입니다.
  *
- * @param schema - `createQueryState`로 생성한 Zod 스키마
+ * @param schema - `defineQueryState`로 생성한 Zod 스키마
  * @param defaultValue - 쿼리 파라미터의 기본값
  */
 export const useQueryState = <TSchema extends z.ZodType>(
