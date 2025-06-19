@@ -44,7 +44,7 @@ export const useQueryState = <TSchema extends z.ZodType>(
       params.set(key.toString(), encodeValue(value));
     }
 
-    router.push(pathname + "?" + params.toString());
+    router.replace(pathname + "?" + params.toString());
   };
 
   /**
@@ -70,7 +70,7 @@ export const useQueryState = <TSchema extends z.ZodType>(
       }
     });
 
-    router.push(pathname + "?" + params.toString());
+    router.replace(pathname + "?" + params.toString());
   };
 
   /**
@@ -80,7 +80,7 @@ export const useQueryState = <TSchema extends z.ZodType>(
    *
    * getQueryString({ page: 2, sort: "asc" }) // "?page=2&sort=asc"
    *
-   * router.push('/products' + getQueryString({ page: 2, sort: "asc" }))
+   * router.replace('/products' + getQueryString({ page: 2, sort: "asc" }))
    */
   const getQueryString = (
     entries: Partial<
@@ -107,7 +107,7 @@ export const useQueryState = <TSchema extends z.ZodType>(
 
     params.delete(key.toString());
 
-    router.push(pathname + "?" + params.toString());
+    router.replace(pathname + "?" + params.toString());
   };
 
   /**
@@ -117,7 +117,7 @@ export const useQueryState = <TSchema extends z.ZodType>(
    * clear();
    */
   const clear = () => {
-    router.push(pathname);
+    router.replace(pathname);
   };
 
   return {
